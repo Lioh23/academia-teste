@@ -1,10 +1,10 @@
 <?php
 
-namespace DaleTech\Http\Controllers\Alunos;
+namespace app\Http\Controllers\Alunos;
 
 use Illuminate\Http\Request;
-use DaleTech\Http\Controllers\Controller;
-use DaleTech\Aluno;
+use app\Http\Controllers\Controller;
+use app\Aluno;
 use Illuminate\Support\Facades\DB;
 
 class AlunosController extends Controller
@@ -66,7 +66,7 @@ class AlunosController extends Controller
         foreach($alunos as $al) {
             if($al->id == $id) {
                 return view('academia.alunos.show')->with('aluno', $aluno);
-            }     
+            }
         }
         return redirect()->route('alunos.index');
     }
@@ -102,7 +102,7 @@ class AlunosController extends Controller
         $aluno = Aluno::find($id);
 
         $aluno->matricula = $request->matricula;
-        $aluno->nome = $request->nome; 
+        $aluno->nome = $request->nome;
         $aluno->dnascimento = $request->dnascimento;
         $aluno->sexo = $request->sexo;
         $aluno->bairro = $request->bairro;
